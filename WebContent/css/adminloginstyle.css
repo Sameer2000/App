@@ -1,0 +1,131 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* reset */
+* {
+margin: 0;
+padding: 0;
+}
+
+/* render html5 elements as block */
+header, footer, section, aside, nav, article {
+display: block;
+}
+
+html, body{ height:100%}
+
+.clearfix{clear:both}
+.mt1{margin-top:10px}
+.bb{ border-bottom:4px solid #e6e2d0;}
+.bd{border-bottom:1px dotted #A9A9A9;}
+.active{ background:url(../images/slider_heading_hover.png) repeat-x;}
+
+
+body{ font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:18px; color:#333333;}
+
+/* Layout */
+#wrapper{ width:100%; margin:0; padding:0; min-height:100%; border:1px solid #cccccc;}
+.full-size{width:100%;}
+.header-bg{ background:#c9341c;}
+.nav-bg{ background:url(../images/nav_bg.gif) repeat-x;}
+.slider-bg{ background:#283b1f;}
+#header{ padding:15px 0; width:960px; margin:0 auto}
+#header .logo{ float:left}
+#header .total_players{ float:left; color:#ffe476; font-size:18px; font-weight:bold; width:150px; text-align:center; padding-left:115px
+}
+.total_players span{font-size:12px; color:#fff;}
+#header .login_form{ float:right; width:247px;}
+.login_form input{width:115px; padding:3px 2px; border:1px solid #AD2914; font-family:Arial, Helvetica, sans-serif}
+.login_form .btn_fp{ text-align:right; color:#fff; font-size:12px; padding-top:10px}
+.btn_fp img{padding-left:10px; cursor:pointer}
+.btn_fp a{ color:#fff; text-decoration:none;}
+.btn_fp a:hover{ text-decoration:underline; color:#faeb8b}
+
+#navigation{ width:960px; margin:0 auto;}
+#navigation ul{ margin:0; padding:0;}
+#navigation ul li{display:inline-block; list-style:none;}
+#navigation ul li a{color:#870000; font-size:16px; font-weight:bold; text-decoration:none; padding:10px 42px; display:block; background:url(../images/nav_sp.png) no-repeat; background-position:right}
+#navigation ul li a:hover{ color:#000000}
+
+#mid_container{ width:960px; margin:0 auto; padding:20px 0 0 0;}
+#Registraion_form{ background:url(../images/reg_bg.png) repeat; border:3px solid #fff; float:left; -moz-border-radius:10px; -webkit-border-radius:10px; -ms-border-radius:10px; border-radius:10px; width:255px;}
+.bonus{ background:url(../images/get_bonus_bg.png) no-repeat; width:200px; background-position:center; height:75px; margin:-12px 0 0 30px}
+.bonus .rupee_icon{ float:left; width:30px; padding:12px 0 0 50px}
+.bonus .bonus_value{ font-size:14px; font-weight:bold; padding:4px 10px; float:left; line-height:17px;}
+.bvn{font-size:20px; color:#c9341c}
+.tc{font-size:11px; font-weight:normal; color:#999}
+#Registraion_form .spn{ font-size:22px; color:#fff; font-weight:bold; margin-left:8px; padding-top:15px; text-shadow:0 1px 1px #595959}
+.ntxt{ color:#ffec83}
+#Registraion_form .form_input{ padding:15px 10px;}
+.form_input label{width:60px; text-align:right; float:left; color:#fff; font-weight:bold; padding:3px 10px 3px 0}
+.form_input input{ width:157px; padding:3px 2px; border:1px solid #7f5417; font-family:Arial, Helvetica, sans-serif}
+.form_input input:focus{box-shadow:0 0 2px #fbfbf8}
+.form_input select{ width:163px; padding:2px; border:1px solid #7f5417; font-family:Arial, Helvetica, sans-serif}
+.form_input select:focus{box-shadow:0 0 2px #fbfbf8}
+.reg-btn{ padding-left:80px; color:#fff;  }
+.reg-btn img{ padding-top:10px; cursor:pointer}
+.info{color:#fff; padding:5px 0; text-align:center; border-top:1px solid #89270C; margin-top:5px}
+.info a{ color:#fff; text-decoration:none}
+.info a:hover{ text-decoration:underline}
+
+#slider{ float:right;}
+#slider .slider_heading{ background:#182512; border:1px solid #344a29;}
+#slider .slider_heading ul{margin:0; padding:0;}
+#slider .slider_heading li{display:inline-block; list-style:none; color:#fff; font-size:22px; font-weight:bold; padding:16px 21px}
+#slider .slider_heading li:hover{ background:url(../images/slider_heading_hover.png) repeat-x;}
+#slider img{ padding:50px 0 0 40px; margin-bottom:-5px}
+
+.bottom-bg{ background:#000000 url(../images/bottom_bg.gif) repeat-x; background-position:top;}
+
+#bottom_container{ width:960px; margin:0 auto; padding:0; border:1px solid #761404; -moz-border-radius:10px; -webkit-border-radius:10px; -ms-border-radius:10px; border-radius:10px; background:#fff}
+#bottom_container .service{padding:20px 0; margin-left:20px; width:450px; float:left; }
+#bottom_container .service .service_icon{ background:url(../images/services_bg.png) no-repeat; width:94px; height:94px; float:left }
+#bottom_container .service .service_icon img{}
+#bottom_container .service .details{ float:left; padding-left:15px; width:320px}
+#bottom_container .service .details h1{font-size:20px; font-weight:bold; margin:0; padding-bottom:8px;}
+#bottom_container .service .details p{ margin:0; padding:0}
+#footer{ padding:25px 0; text-align:center; color:#fff;}
+#footer a{color:#f9b452; text-decoration:none;}
+#footer a:hover{ text-decoration:underline}
+
+
+/*Login page css*/
+.main_container{ width:960px; margin:0 auto; padding:20px 0 0 0;}
+.main_container #menu{ width:290px; float:left; margin:0; padding:0; }
+.main_container #menu .menu_heading{ background:url(../images/nav_bg.gif) repeat-x; padding:10px 15px; color:#870000; font-size:22px;  border-top-left-radius:10px; border-top-right-radius:10px; border:1px solid #5d0e01; font-weight:bold}
+.main_container #menu ul{ margin:0; padding:0; background:#fff; border:1px solid #5d0e01; border-top:none}
+.main_container #menu ul li{ display:block; list-style:none}
+.main_container #menu ul li a{ padding:8px 10px; text-decoration:none; font-size:16px; color:#074180; display:block; border-bottom:1px solid #c9c9c9  }
+
+.main_container #menu ul li a:hover{ background:url(../images/menu_hover.gif) repeat-x; border-bottom:1px solid #c9c9c9; color:#fff; font-weight:bold}
+.main_container #menu img{border:none}
+.right-Container{float:right; width:615px; background:#fff; -moz-border-radius:10px; -webkit-border-radius:10px; -ms-border-radius:10px; border-radius:10px; min-height:549px; padding:15px;}
+.main_heading{font-size:22px; border-bottom:1px dotted #8f8f8f; padding-bottom:5px; display:block; font-weight:bold}
+.dashboard{display:block; margin-top:20px;}
+.dashboard table{ border-collapse:collapse;}
+.dashboard table tr td{ padding:5px; border-color:#cccccc;  text-align:center}
+.fbold{font-weight:bold}
+.fsize{font-size:15px;}
+.bg_tbl{ background:url(../images/menu_hover.gif) repeat-x;}
+.wtxt{color:#fff}
+.ltxt{text-align:left}
+.fl{ float:left}
+.fr{ float:right}
+.dashboard_status{padding:3px;}
+.dashboard_status a{color:#074180; text-decoration:none; padding-left:3px;}
+.dashboard_status a:hover{ text-decoration:underline}
+
+/*Admin login form css*/
+#admin_box{ margin:0 auto; padding:200px; width:388px; }
+#admin_box .admin_logo_box{display:block; padding:0;}
+#admin_box .admin_logo_box img{ border:none; padding-left:30px;}
+#admin_box .admin_login_form{ margin:25px 0; padding:25px; background:#ffffff; box-shadow:0 0 8px #2E2E2E; border-radius:5px;}
+#admin_box .admin_login_form .innerbox {display:block; margin-bottom:25px;}
+#admin_box .admin_login_form .innerbox label{ width:75px; float:left; font-size:16px; text-align:right; padding:8px 8px 8px 0;}
+#admin_box .admin_login_form .innerbox input{ padding:8px; width:230px; border:1px solid #cccccc; border-radius:5px; box-shadow:0 2px 2px #dddddd inset}
+#admin_box .admin_login_form input:focus, #admin_box .admin_login_form input:active{ box-shadow:0 1px 2px #AEAEAE; outline:none}
+.admin_login_Btn{ padding-left:84px;}
+.admin_login_Btn img{padding:15px 40px 0 0}
+.admin_login_Btn a{color:#074180; text-decoration:none}
+.admin_login_Btn a:hover{text-decoration:underline}
+.minH{min-height:100%}

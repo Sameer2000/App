@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+    <definition name="user.base.definition"
+        template="/site/template/layout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/site/template/header.jsp" />
+        <put-attribute name="topmenu" value="/site/template/topmenu.jsp" />
+        <put-attribute name="usermenu" value="/site/template/usermenu.jsp" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="/site/template/footer.jsp" />
+    </definition>
+ 
+    <definition name="download_page" extends="user.base.definition">
+        <put-attribute name="title" value="User-Welcome-Page" />
+        <put-attribute name="body" value="/site/welcome.jsp" />
+    </definition>
+ 
+    <definition name="user_welcome_page" extends="user.base.definition">
+        <put-attribute name="title" value="User-Welcome-Page" />
+        <put-attribute name="body" value="/site/welcome.jsp" />
+    </definition>
+    
+    
+    <definition name="user_change_password_page" extends="user.base.definition">
+        <put-attribute name="title" value="User-Change-Password-Page" />
+        <put-attribute name="body" value="/site/changepassword.jsp" />
+    </definition>
+
+    <definition name="user_game_history_page" extends="user.base.definition">
+        <put-attribute name="title" value="User-Game-History-Page" />
+        <put-attribute name="body" value="/site/gameHistory.jsp" />
+    </definition>
+    
+    <definition name="user_played_game_page" extends="user.base.definition">
+        <put-attribute name="title" value="User-Played-Game-Page" />
+        <put-attribute name="body" value="/site/playedgame.jsp" />
+    </definition>
+    
+    <definition name="user_kyl_page" extends="user.base.definition">
+        <put-attribute name="title" value="User-Know-Your-Luck-Page" />
+        <put-attribute name="body" value="/site/kyl.jsp" />
+    </definition>
+
+    <definition name="user_recharge_amount_page" extends="user.base.definition">
+        <put-attribute name="title" value="User-Recharge-Amount-Page" />
+        <put-attribute name="body" value="/site/recharge_amount.jsp" />
+    </definition>
+
+    <definition name="user_recharge_amount_confirm_page" extends="user.base.definition">
+        <put-attribute name="title" value="User-Recharge-Amount-Confirm-Page" />
+        <put-attribute name="body" value="/site/recharge_amount_confirm.jsp" />
+    </definition>
+    
+    <definition name="user_dashboard_page" extends="user.base.definition">
+        <put-attribute name="title" value="User-Dashboard-Page" />
+        <put-attribute name="body" value="/site/dashboard.jsp" />
+    </definition>
+    
+    <definition name="user_my_account_page" extends="user.base.definition">
+        <put-attribute name="title" value="User-My-Account-Page" />
+        <put-attribute name="body" value="/site/my_account.jsp" />
+    </definition>
+    
+    <definition name="user_my_profile_page" extends="user.base.definition">
+        <put-attribute name="title" value="User-My-Profile-Page" />
+        <put-attribute name="body" value="/site/my_profile.jsp" />
+    </definition>
+
+    <definition name="user_private_room_page" extends="user.base.definition">
+        <put-attribute name="title" value="User-Private-Room-Page" />
+        <put-attribute name="body" value="/site/private_room.jsp" />
+    </definition>
+    
+    <definition name="pp_trans_page"
+        template="/paypal/pp_trans_process.jsp">
+    </definition>
+
+    <definition name="user_private_room_page_test" template="/site/private_room.jsp" >
+    </definition>
+    
+    <definition name="fragment_trans_page" 
+        template="/site/fragment_trans_page.jsp" >
+    </definition>
+
+    <definition name="fragment_pptrans_page" 
+        template="/site/fragment_pptrans_page.jsp" >
+    </definition>
+
+    <definition name="user_redeem" extends="user.base.definition">
+        <put-attribute name="title" value="User-redeem" />
+        <put-attribute name="body" value="/site/redeem.jsp" />
+    </definition>
+    
+    <definition name="fragment_redeem_page" 
+        template="/site/fragment_redeem_page.jsp" >
+    </definition>
+
+</tiles-definitions>

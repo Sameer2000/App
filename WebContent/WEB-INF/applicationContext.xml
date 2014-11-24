@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd
+http://www.springframework.org/schema/mvc 
+http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+http://www.springframework.org/schema/task
+ http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+	<!-- Activates various annotations to be detected in bean classes -->
+	<context:annotation-config />
+
+	<!-- Scans the classpath for annotated components that will be auto-registered 
+		as Spring beans. For example @Controller and @Service. Make sure to set the 
+		correct base-package -->
+	<context:component-scan base-package="com.housee.app.controller" />
+
+	<!-- Configures the annotation-driven Spring MVC Controller programming 
+		model. Note that, with Spring 3.0, this tag works in Servlet MVC only! -->
+	<mvc:annotation-driven />
+	
+	 <!-- Activates @Scheduled and @Async annotations for scheduling -->
+ 	<task:annotation-driven />
+
+ 	<!-- Load Hibernate related configuration -->
+	<import resource="hibernate-context.xml" />
+
+	<bean id="testmail" class="com.housee.app.mail.Testmail"></bean>	
+	
+	<bean id="playerService" class="com.housee.app.service.PlayerServiceImpl"></bean>
+	
+	<bean id="gameService" class="com.housee.app.service.GameServiceImpl"></bean>
+	
+	<bean id="roomService" class="com.housee.app.service.RoomServiceImpl"></bean>
+
+	<bean id="userService" class="com.housee.app.service.UserServiceImpl"></bean>
+	
+	<bean id="adminService" class="com.housee.app.service.AdminServiceImpl"></bean>
+	
+	<bean id="siteService" class="com.housee.app.service.SiteServiceImpl"></bean>
+	
+	<bean id="commonService" class="com.housee.app.service.CommonServiceImpl"></bean>
+	
+	<bean id="paymentService" class="com.housee.app.service.PaymentTransactionServiceImpl">
+	    <property name="ppSetEC">
+	         <bean class="com.housee.app.paypal.express.checkout.ECSetExpressCheckout"/>
+	    </property>
+	    <property name="ppGetEC">
+	         <bean class="com.housee.app.paypal.express.checkout.ECGetExpressCheckout"/>
+	    </property>
+	    <property name="ppDoEC">
+	         <bean class="com.housee.app.paypal.express.checkout.ECDoExpressCheckout"/>
+	    </property>
+	</bean>	
+	
+	<bean id="ticketService" class="com.housee.app.service.TicketServiceImpl">
+	    <property name="ticket" ref="ticket"></property>
+	    <property name="ticketUtil" ref="ticketUtil"></property>
+	</bean>
+
+	<bean id="ticket" class="com.housee.app.model.Ticket" scope="prototype"/>
+	
+	<bean id="block" class="com.housee.app.model.Block" scope="prototype"/>
+	
+	<bean id="ticketUtil" class="com.housee.app.service.TicketUtil"/>
+	
+
+	<bean id="chartDao" class="com.housee.app.dao.ChartDaoImpl">
+	    	<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="commonDao" class="com.housee.app.dao.CommonDaoImpl">
+	    	<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	
+	<bean id="paymentDao" class="com.housee.app.dao.PaymentDaoImpl">
+	    	<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+		
+	<bean id="gameRunner" class="com.housee.app.service.GameScheduler"></bean>
+
+	<bean id="gameSchedulerTask" class="com.housee.app.job.scheduler.GameSchedulerTask" />
+
+	<bean id="createNewGameTask" class="com.housee.app.job.scheduler.CreateNewGameTask" />
+	 
+	<!-- Spring Quartz -->
+	<bean name="runMeJob1" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass" value="com.housee.app.job.scheduler.CreateNewGameJob" />
+		<property name="jobDataAsMap">
+		  <map>
+			<entry key="createNewGameTask" value-ref="createNewGameTask" />
+		  </map>
+		</property>
+	</bean>
+
+	<bean name="runMeJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass" value="com.housee.app.job.scheduler.GameSchedulerJob" />
+		<property name="jobDataAsMap">
+		  <map>
+			<entry key="gameSchedulerTask" value-ref="gameSchedulerTask" />
+		  </map>
+		</property>
+	</bean>
+ 
+	<!-- Simple Trigger, run every 30 minute -->
+	<bean id="simpleTrigger1" 
+                class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="runMeJob1" />
+		<property name="repeatInterval" value="1800000" />
+		<property name="startDelay" value="10000" />
+	</bean>
+	
+	
+	<!-- Simple Trigger, run every 5 minute -->
+	<bean id="simpleTrigger" 
+                class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="runMeJob" />
+		<property name="repeatInterval" value="300000" />
+		<property name="startDelay" value="10000" />
+	</bean>
+ 
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+			    <ref bean="simpleTrigger" />
+				<ref bean="simpleTrigger1" />
+			</list>
+		</property>
+	</bean>
+	
+			
+	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+	  <property name="corePoolSize" value="5" />
+	  <property name="maxPoolSize" value="10" />
+	  <property name="queueCapacity" value="25" />
+	</bean>
+	
+	<bean id="taskExecutorExample" class="com.housee.app.job.scheduler.TaskExecutorExample">
+	  <constructor-arg ref="taskExecutor" />
+	</bean>
+
+	<bean id="createNewGameTaskExecutor" class="com.housee.app.job.scheduler.CreateNewGameTaskExecutor">
+	  <constructor-arg ref="taskExecutor" />
+	</bean>
+			
+	<bean class="com.housee.app.jsonp.filter.JsonpCallbackFilter" id="jsonpCallbackFilter" />
+
+	<bean
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="contentNegotiationManager">
+            <bean class="org.springframework.web.accept.ContentNegotiationManager">
+                <constructor-arg>
+                    <bean class="org.springframework.web.accept.PathExtensionContentNegotiationStrategy">
+                        <constructor-arg>
+                            <map>
+								<entry key="atom" value="application/atom+xml" />
+								<entry key="html" value="text/html" />
+								<entry key="json" value="application/json" />
+                            </map>
+                        </constructor-arg>
+                    </bean>
+                </constructor-arg>
+            </bean>
+        </property>
+		<property name="viewResolvers">
+			<list>
+				<bean
+					class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+					<property name="prefix" value="/WEB-INF/jsp/" />
+					<property name="suffix" value=".jsp" />
+				</bean>
+			</list>
+		</property>
+		<property name="defaultViews">
+			<list>
+				<bean
+					class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+			</list>
+		</property>
+		<property name="order" value="1"></property>
+	</bean>
+
+</beans>	

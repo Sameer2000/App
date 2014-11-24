@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+    <definition name="admin.base.definition"
+        template="/admin/template/layout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/admin/template/header.jsp" />
+        <put-attribute name="menu" value="/admin/template/menu.jsp" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="/admin/template/footer.jsp" />
+    </definition>
+ 
+    <definition name="admin_room_list_view" extends="admin.base.definition">
+        <put-attribute name="title" value="Admin-Room-Listing" />
+        <put-attribute name="body" value="/admin/room_list_view.jsp" />
+    </definition>
+    
+    <definition name="send_push_notification_view" extends="admin.base.definition">
+        <put-attribute name="title" value="Admin-SendPN" />
+        <put-attribute name="body" value="/admin/SendPn.jsp" />
+    </definition>
+ 
+     <definition name="admin_games_list_view" extends="admin.base.definition">
+        <put-attribute name="title" value="Admin-Games-Listing" />
+        <put-attribute name="body" value="/admin/games_list_view.jsp" />
+    </definition>
+    
+   <definition name="admin_users_list_view" extends="admin.base.definition">
+        <put-attribute name="title" value="Admin-Users-Listing" />
+        <put-attribute name="body" value="/admin/users_list_view.jsp" />
+    </definition>
+    
+       <definition name="admin_players_list_view" extends="admin.base.definition">
+        <put-attribute name="title" value="Admin-Players-Listing" />
+        <put-attribute name="body" value="/admin/players_list_view.jsp" />
+    </definition>
+    
+    <definition name="admin_create_room" extends="admin.base.definition">
+        <put-attribute name="title" value="Admin-Create-Room" />
+        <put-attribute name="body" value="/admin/create_room.jsp" />
+    </definition>
+    
+    <definition name="admin_edit_room" extends="admin.base.definition">
+        <put-attribute name="title" value="Admin-Update-Room" />
+        <put-attribute name="body" value="/admin/edit_room.jsp" />
+    </definition>
+    
+    <definition name="admin_kyl_list_view" extends="admin.base.definition">
+        <put-attribute name="title" value="Admin-KYL-Request" />
+        <put-attribute name="body" value="/admin/kyl_list_view.jsp" />
+    </definition>
+
+    <definition name="admin_contact_us_view" extends="admin.base.definition">
+        <put-attribute name="title" value="Admin-Contact-Us-Request" />
+        <put-attribute name="body" value="/admin/query_list_view.jsp" />
+    </definition>
+    
+    <definition name="admin_kyl_reply_view" extends="admin.base.definition">
+    	<put-attribute name="title" value="Admin-KYL-Reply"/>
+    	<put-attribute name="body" value="/admin/kyl_reply.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="admin_create_user" extends="admin.base.definition">
+        <put-attribute name="title" value="Admin-Create-NewUser" />
+        <put-attribute name="body" value="/admin/create_user.jsp" />
+   </definition>
+
+   <definition name="admin_reg_chart" extends="admin.base.definition">
+        <put-attribute name="title" value="Admin-Create-NewUser" />
+        <put-attribute name="body" value="/admin/regChart.jsp" />
+   </definition>
+   
+	<definition name="admin_users_edit_view" extends="admin.base.definition">
+        <put-attribute name="title" value="Admin-Settings" />
+        <put-attribute name="body" value="/admin/user_details.jsp" />
+    </definition>  
+   
+   <definition name="display_chart" 
+        template="/admin/display_chart.jsp" >
+    </definition>
+
+   <definition name="admin_tra_chart" extends="admin.base.definition">
+        <put-attribute name="title" value="Admin-Create-NewUser" />
+        <put-attribute name="body" value="/admin/traChart.jsp" />
+   </definition>
+   
+   <definition name="admin_game_detail_view" extends="admin.base.definition">
+       <put-attribute name="title" value="Admin-Settings" />
+       <put-attribute name="body" value="/admin/gameDetails.jsp" />
+   </definition>
+
+   <definition name="admin_edit_redeem" extends="admin.base.definition">
+        <put-attribute name="title" value="Admin-Update-Room" />
+        <put-attribute name="body" value="/admin/edit_redeem.jsp" />
+    </definition>
+
+    <definition name="admin_redeem_list_view" extends="admin.base.definition">
+        <put-attribute name="title" value="Admin-Contact-Us-Request" />
+        <put-attribute name="body" value="/admin/redeem_list_view.jsp" />
+    </definition>
+
+    <definition name="admin_cntUsQuery_reply_view" extends="admin.base.definition">
+        <put-attribute name="title" value="Admin-Contact-Us-Response" />
+        <put-attribute name="body" value="/admin/query_reply.jsp" />
+    </definition>
+    
+    <definition name="user_detail_fragment_pptrans_page" 
+        template="/admin/user_detail_fragment_pptrans.jsp" >
+    </definition>
+    
+    <definition name="user_detail_fragment_account_page" 
+        template="/admin/user_detail_fragment_account.jsp" >
+    </definition>
+    
+    <definition name="games_list_fragment_page" 
+        template="/admin/games_list_fragment_page.jsp" >
+    </definition>
+    
+    <definition name="send_push_notification_view" extends="admin.base.definition">
+        <put-attribute name="title" value="Admin-SendPN" />
+        <put-attribute name="body" value="/admin/SendPn.jsp" />
+    </definition>
+    
+</tiles-definitions>
